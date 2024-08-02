@@ -20,10 +20,10 @@ public class ProdutoCTR {
         
     }
     
-    public String inserirProduto(ProdutoDTO produtoDTO, FornecedorDTO fornecedorDTO) {
+    public String inserirProduto(ProdutoDTO produtoDTO, FornecedorDTO fornecedorDTO) { //Metodo inserirProduto
         try {
             if(produtoDAO.inserirProduto(produtoDTO, fornecedorDTO)) {
-                return "Produto Cadastrado Com Sucesso!!!";
+                return "Produto Cadastrado Com Sucesso!!!"; 
                 
             }else {
                 return "Produto NÃO Cadastrado!!!";
