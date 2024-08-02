@@ -115,7 +115,7 @@ public class FuncionarioDAO {
         finally {
             ConexaoDAO.CloseDB();
         }
-    }
+   }//Alteração no Método AlterarFuncinario
     
     public boolean excluirFuncionario(FuncionarioDTO funcionarioDTO) {
         try {
