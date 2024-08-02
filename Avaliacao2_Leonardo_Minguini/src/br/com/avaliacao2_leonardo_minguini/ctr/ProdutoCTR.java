@@ -20,6 +20,20 @@ public class ProdutoCTR {
         
     }
     
+    public String inserirProduto(ProdutoDTO produtoDTO, FornecedorDTO fornecedorDTO) {
+        try {
+            if(produtoDAO.inserirProduto(produtoDTO, fornecedorDTO)) {
+                return "Produto Cadastrado Com Sucesso!!!";
+                
+            }else {
+                return "Produto NÃO Cadastrado!!!";
+            }
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+            return "Produto NÃO Cadastrado!!!";
+        }
+    }
     
     
     public String alterarProduto(ProdutoDTO produtoDTO, FornecedorDTO fornecedorDTO) {
