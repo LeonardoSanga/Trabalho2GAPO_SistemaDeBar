@@ -80,6 +80,36 @@ public class FornecedorDAO {
         }
     }
     
+    public boolean alterarFornecedor(FornecedorDTO fornecedorDTO) {
+        try {
+            ConexaoDAO.ConnectDB();
+            
+            stmt = ConexaoDAO.con.createStatement();
+            
+            String comando = "Update fornecedor set "
+                    + "nome_for = '" + fornecedorDTO.getNome_for() + "', "
+                    + "cnpj_for = '" + fornecedorDTO.getCnpj_for() + "', "
+                    + "tel_for = '" + fornecedorDTO.getTel_for() + "', "
+                    + "data_cad_for = to_date('" + data_format.format(fornecedorDTO.getData_cad_for()) + "', 'dd/mm/yyyy') "
+                    + "where id_for = " + fornecedorDTO.getId_for();
+            
+            stmt.execute(comando.toUpperCase());
+            
+            ConexaoDAO.con.commit();
+            
+            stmt.close();
+            
+            return true;
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        finally {
+            ConexaoDAO.CloseDB();
+        }
+    }
+    
     public ResultSet consultarFornecedor(FornecedorDTO fornecedorDTO, int opcao) {
         try {
             ConexaoDAO.ConnectDB();
